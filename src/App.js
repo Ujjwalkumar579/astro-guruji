@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [apidata, setData] = useState(null);
+  const [apidata, setData] = useState({});
 
   var data = {
     day: 12,
