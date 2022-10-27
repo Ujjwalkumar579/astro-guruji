@@ -1,10 +1,11 @@
+/* eslint-disable no-useless-concat */
 /* eslint-disable no-undef */
-import logo from './logo.svg';
-import './App.css';
-import { useEffect, useState } from 'react';
+// import logo from './logo.svg';
+import "./App.css";
+import { useEffect, useState } from "react";
+import Home from "./components/Home/Home";
 
 function App() {
-
   const [apidata, setData] = useState({});
 
   var data = {
@@ -15,7 +16,7 @@ function App() {
     min: 23,
     lat: 19.132,
     lon: 72.342,
-    tzone: 5.5
+    tzone: 5.5,
   };
 
   useEffect(() => {
@@ -26,15 +27,15 @@ function App() {
       headers: {
         authorization:
           "Basic " + btoa("621047" + ":" + "8838f35fa21300254650063705ec70d4"),
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      data: JSON.stringify(data)
+      data: JSON.stringify(data),
     });
 
     request.then(
       function (resp) {
         console.log(resp);
-        setData(resp)
+        setData(resp);
       },
       function (err) {
         console.log(err);
@@ -44,8 +45,8 @@ function App() {
 
   return (
     <div className="App">
-      this is website
-      <p>{apidata.year}</p>
+      <div className="bg"></div>
+      <Home />
     </div>
   );
 }
