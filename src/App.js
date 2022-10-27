@@ -33,7 +33,7 @@ function App() {
 
     request.then(
       function (resp) {
-        // console.log(resp);
+        console.log(resp);
         setData(resp)
       },
       function (err) {
@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       {
-        apidata.year
+        {/* apidata.year */ }
       }
     </div>
   );
