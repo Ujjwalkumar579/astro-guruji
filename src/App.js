@@ -44,9 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      {
-        {/* apidata.year */ }
-      }
+      this is
     </div>
   );
 }
