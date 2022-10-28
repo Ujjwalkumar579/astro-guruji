@@ -84,7 +84,7 @@
 .form_wrapper form {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 12px;
 }
 
 .form_wrapper form input {
@@ -92,6 +92,10 @@
     border: none;
     border-bottom: 2px solid var(--btn-color);
     background: #f3e3c8;
+}
+.form_wrapper form span {
+    color: var(--btn-color);
+    font-size: 12px;
 }
 
 .form_wrapper form input:focus {

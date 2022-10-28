@@ -6,23 +6,26 @@ import astro_circle from "../../img/astrology-circle-orance.png";
 import aries from "../../img/aries.png";
 // import aries_gold from "../../img/aries-gold.png";
 import Header from "../navbar/Header";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import setData from "../../redux/action/Action_creator";
+import { setData } from "../../redux/action/Action_creator";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [formData, setFormData] = useState({
     dob: "",
     time: "",
-    latitude: "",
-    longitude: "",
-    timezone: "",
+    latitude: 18.216,
+    longitude: 72.8258,
+    timezone: 5.3,
   });
 
-  console.log(formData);
+  //   console.log(formData);
 
   const dispatch = useDispatch();
-  const setDataInStore = () => {
+  const navigate = useNavigate();
+  const setDataInStore = (e) => {
+    e.preventDefault();
+    navigate("/astro_detail");
     dispatch(setData(formData));
   };
 
@@ -42,7 +45,7 @@ const Home = () => {
                 <div className="form_wrapper">
                   {/* <img src={aries_gold} alt="" className="img-fluid" /> */}
                   <img src={aries} alt="" className="img-fluid" />
-                  <form action="">
+                  <form action="" onSubmit={setDataInStore}>
                     <div className="dob_filed">
                       <label htmlFor="dob">Date of Birth</label>
                       <input
@@ -51,10 +54,12 @@ const Home = () => {
                         placeholder="DOB"
                         className="form-control"
                         id="dob"
+                        required
                         onChange={(e) =>
                           setFormData({ ...formData, dob: e.target.value })
                         }
                       />
+                      <span>Click on calendar icon to pick date</span>
                     </div>
                     <div className="time_filed">
                       <label htmlFor="tob">Time of Birth</label>
@@ -64,10 +69,12 @@ const Home = () => {
                         placeholder="Time of Birth"
                         className="form-control"
                         id="tob"
+                        required
                         onChange={(e) =>
                           setFormData({ ...formData, time: e.target.value })
                         }
                       />
+                      <span>Click on clock icon to pick time</span>
                     </div>
                     <div className="lat_long_filed">
                       <div className="row">
@@ -79,6 +86,7 @@ const Home = () => {
                             placeholder="Latitude"
                             className="form-control"
                             id="lat"
+                            required
                             onChange={(e) =>
                               setFormData({
                                 ...formData,
@@ -86,6 +94,7 @@ const Home = () => {
                               })
                             }
                           />
+                          <span>Eg. 18.216</span>
                         </div>
                         <div className="col">
                           <label htmlFor="long">Longitude</label>
@@ -96,6 +105,7 @@ const Home = () => {
                             placeholder="Longitude"
                             className="form-control"
                             id="long"
+                            required
                             onChange={(e) =>
                               setFormData({
                                 ...formData,
@@ -103,6 +113,7 @@ const Home = () => {
                               })
                             }
                           />
+                          <span>Eg. 72.8258</span>
                         </div>
                       </div>
                     </div>
@@ -117,21 +128,21 @@ const Home = () => {
                         placeholder="Timezone"
                         className="form-control"
                         value={formData.timezone}
+                        required
                         onChange={(e) =>
-                          setFormData({ ...formData, timezone: e.target.value })
+                          setFormData({
+                            ...formData,
+                            timezone: e.target.value,
+                          })
                         }
                       />
+                      <span>Eg. 5.30</span>
                     </div>
 
                     <div className="submit_btn">
-                      <Link to="astro_detail">
-                        <button
-                          className="btn form-control"
-                          onClick={setDataInStore}
-                        >
-                          Submit
-                        </button>
-                      </Link>
+                      {/* <Link to="astro_detail"> */}
+                      <button className="btn form-control">Submit</button>
+                      {/* </Link> */}
                     </div>
                   </form>
                 </div>
@@ -149,66 +160,6 @@ const Home = () => {
           </Row>
           {/* <Row>
             <Col>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
-              atque? Impedit aut rerum fugiat rem? Beatae atque expedita
-              dolores. Nemo ratione temporibus magnam nam, ipsam doloremque
-              reiciendis eaque libero molestias eius quasi labore? Labore culpa
-              possimus sint pariatur sed, molestias nihil harum omnis adipisci
-              delectus? Blanditiis amet quod eius quae asperiores facere nemo
-              nostrum illum quia, voluptas, eaque, doloremque vitae praesentium
-              architecto quaerat suscipit minima molestias ea consectetur
-              adipisci nulla sapiente? Dolor asperiores quasi incidunt porro
-              impedit! Cum praesentium quod laboriosam ipsam aspernatur aperiam
-              iure, quisquam mollitia alias explicabo voluptatum in perferendis
-              pariatur voluptates, nostrum magnam molestiae, assumenda quae
-              repudiandae? Ab omnis architecto maxime nam repudiandae minima
-              nisi necessitatibus praesentium quos voluptates, suscipit, iusto
-              molestias a maiores, delectus sapiente totam. Cum iste blanditiis
-              sunt voluptatem. Praesentium obcaecati, deserunt nobis aspernatur,
-              velit magnam enim explicabo nisi ipsum fugiat voluptatum facilis?
-              Iure tempore porro atque quaerat? Quod dolores excepturi, eaque
-              minima aspernatur assumenda quibusdam labore accusamus molestias
-              iure, eveniet at repudiandae necessitatibus! Ad nihil praesentium
-              hic impedit voluptatem voluptates iure nulla quia, iste dolore
-              natus consectetur delectus perferendis ratione neque amet animi
-              repudiandae. Expedita facilis illum mollitia ad magni, dignissimos
-              voluptates amet sit obcaecati, voluptas eaque natus corrupti.
-              Reprehenderit sint, aliquam molestiae voluptatibus repellendus hic
-              aperiam alias, dicta quas veniam ducimus qui corporis provident!
-              Cumque ipsam itaque porro repellat blanditiis unde labore
-              voluptate, nesciunt voluptates reprehenderit corrupti. Sapiente
-              ipsum ipsa magni beatae, sit error atque itaque molestiae
-              accusamus, assumenda dolore non alias officia iusto voluptates,
-              dignissimos qui inventore consequatur eius fugiat illo iste
-              laborum? Nulla et doloribus dolore magnam nesciunt quasi
-              cupiditate ipsum sint aut natus maxime ducimus, explicabo sit nisi
-              dolorum sed! Nesciunt illum amet deserunt dolor, odit natus libero
-              earum obcaecati iste sit nostrum ipsam explicabo repellendus cum
-              repellat eum repudiandae fugiat quas. Corrupti eum mollitia error
-              maxime dolores. Odio soluta aperiam doloremque architecto ab,
-              laboriosam repellat, quos nulla, accusamus nam possimus iure
-              molestiae saepe suscipit reiciendis. Debitis dolorem delectus
-              dignissimos molestiae quae harum, earum ea ab sed esse, ipsum
-              distinctio qui, molestias id. Voluptas velit quod incidunt
-              laudantium est eos iste expedita illo amet placeat adipisci enim
-              porro ducimus minus, illum tenetur vel laboriosam alias saepe
-              blanditiis provident molestias maxime quas. Dolorum expedita
-              veritatis eum in blanditiis rem mollitia! Error ducimus quia dolor
-              nisi obcaecati! Hic corrupti minus itaque laudantium quidem
-              doloremque placeat maxime assumenda. Esse beatae tempora accusamus
-              quae ea magni vel sed eius ipsam enim libero quis natus porro,
-              reprehenderit voluptates recusandae dolorem molestias deserunt
-              voluptatibus suscipit, repudiandae odit quam in! Et amet, ducimus
-              dignissimos ipsa quasi dolorum pariatur voluptatem autem at nihil
-              animi debitis earum. Facere ipsa aut consectetur voluptas corrupti
-              voluptatem distinctio minus iusto nihil, ad quas cum odit
-              voluptate sint rem eligendi ea exercitationem dolores? Architecto
-              fuga enim totam officia accusamus voluptates error molestiae
-              suscipit magnam! Saepe et rem ullam, nobis enim numquam nesciunt
-              perferendis praesentium autem optio in minima totam vitae iure
-              quibusdam at cumque! Molestiae explicabo perspiciatis, atque
-              veniam odio sapiente id pariatur ratione voluptatem sequi,
-              perferendis nobis cumque modi vero? Reprehenderit!
             </Col>
           </Row> */}
         </Container>

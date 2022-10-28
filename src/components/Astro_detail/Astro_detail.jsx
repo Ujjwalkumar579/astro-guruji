@@ -5,7 +5,7 @@ import "./Astro_detail.css";
 const Astro_detail = () => {
 
   const myData = useSelector((state) => state.data);
-  console.log(myData.getData);
+  console.log(myData.getApiData);
 
   return (
     <div>
