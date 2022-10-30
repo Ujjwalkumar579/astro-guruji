@@ -1,11 +1,10 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable no-useless-concat */
 /* eslint-disable no-undef */
-// import logo from './logo.svg';
 import "./App.css";
 import { useEffect, useState } from "react";
 import Home from "./components/Home/Home";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Astro_detail from "./components/Astro_detail/Astro_detail";
 import { useDispatch, useSelector } from "react-redux";
 import { setDataOfApiAstro, setDataOfApiBirth, setDataOfApiPanchang } from "./redux/action/Action_creator";

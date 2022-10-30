@@ -1,8 +1,8 @@
 .App {
   width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .bg {
@@ -24,4 +24,71 @@
   background: #d4b17496;
   opacity: 0.6;
   /* z-index: 1; */
+}
+
+.btn-navigate {
+  background: none;
+  border: 0;
+  font-size: 22px;
+  line-height: 32px;
+  position: relative;
+  width: 100px;
+  height: 32px;
+  margin: 0px 100px;
+}
+
+.btn-navigate:focus {
+  border: 0;
+}
+
+.btn-navigate span {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+  font-weight: 900;
+  top: -2px;
+  font-size: 16px;
+}
+
+.btn-navigate::before,
+.btn-navigate::after {
+  background: var(--btn-color);
+  border-radius: 2px;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 1s;
+  height: 1em;
+}
+
+.btn-navigate::before {
+  box-shadow: -1px 1px 0 #c73b04, -2px 2px 0 #c73b04, -3px 3px 0 #c73b04, -4px 4px 0 #c73b04;
+  transform: skew(45deg);
+  bottom: 0;
+  z-index: 1;
+}
+
+
+
+.btn-navigate::after {
+  box-shadow: 1px 1px 0 #c73b04, 2px 2px 0 #c73b04, 3px 3px 0 #c73b04, 4px 4px 0 #c73b04;
+  transform: skew(-45deg);
+  top: 0;
+}
+
+.btn-navigate:hover::before,
+.btn-navigate:hover::after {
+  background: var(--btn-color);
+}
+
+.btn-navigate:focus {
+  outline: 0;
+}
+
+.btn-navigate:focus::before,
+.btn-navigate:focus::after {
+  background: var(--btn-color);
 }
