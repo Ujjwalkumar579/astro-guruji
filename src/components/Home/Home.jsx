@@ -4,7 +4,6 @@ import "./Home.css";
 import window_img from "../../img/window.png";
 import astro_circle from "../../img/astrology-circle-orance.png";
 import aries from "../../img/aries.png";
-// import aries_gold from "../../img/aries-gold.png";
 import Header from "../navbar/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../../redux/action/Action_creator";
@@ -19,8 +18,7 @@ const Home = () => {
     timezone: 5.3,
   });
 
-  // const reduxData = useSelector((state)=>state.data)
-  // console.log(reduxData,"redux data");
+  const reduxData = useSelector((state) => state.data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const setDataInStore = (e) => {
@@ -28,26 +26,26 @@ const Home = () => {
     navigate("/astro_detail");
     dispatch(setData(formData));
   };
-  
-  const navigateToDetail = ()=>{
+
+  const navigateToDetail = () => {
     navigate("/astro_detail");
-  }
+  };
 
   return (
     <div>
       <nav>
         <Header />
       </nav>
-      {
-      
-      }
-      <Col lg={12} className="d-flex justify-content-center">
-        <div className="back_button">
-          <button className="btn btn-right" onClick={navigateToDetail}>
-            <span>Detial Page</span>
-          </button>
-        </div>
-      </Col>
+      {reduxData.getApiDataAstro !== "" ? (
+        <Col lg={12} className="d-flex justify-content-center">
+          <div className="back_button">
+            <button className="btn btn-right" onClick={navigateToDetail}>
+              <span>Detial Page</span>
+            </button>
+          </div>
+        </Col>
+      ) : ""}
+
       <div className="hero_section_wrapper">
         <Container fluid>
           <Row>
@@ -163,7 +161,7 @@ const Home = () => {
                 </div>
               </div>
             </Col>
-            <Col lg={6} className="col-12 mt-sm-4 mt-md-4">
+            <Col lg={6} className="col-12">
               <div className="astro_animation">
                 <div className="window_bg text-center ">
                   <img src={window_img} alt="" className="img-fluid" />

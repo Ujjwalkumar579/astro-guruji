@@ -8,7 +8,7 @@ const AstroTab = ({ astro_detail }) => {
             <Container>
                 <Row>
                     <Col>
-                        <Table striped dark hover>
+                        <Table striped hover>
                             <tbody>
                                 {Object.keys(astro_detail).map((ele, i) => {
                                     return (

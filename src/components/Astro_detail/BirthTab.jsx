@@ -8,7 +8,7 @@ const BirthTab = ({ birth_detail }) => {
       <Container>
         <Row>
           <Col>
-            <Table striped dark hover>
+            <Table striped hover>
               <tbody>
                 {Object.keys(birth_detail).map((ele, i) => {
                   return (

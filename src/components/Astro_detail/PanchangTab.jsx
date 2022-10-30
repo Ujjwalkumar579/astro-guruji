@@ -8,7 +8,7 @@ const PanchangTab = ({ panchang_detail }) => {
             <Container>
                 <Row>
                     <Col>
-                        <Table striped dark hover>
+                        <Table striped hover>
                             <tbody>
                                 {Object.keys(panchang_detail).map((ele, i) => {
                                     return (

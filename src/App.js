@@ -80,13 +80,13 @@ function App() {
 
     Promise.all([request1, request2, request3]).then(
       function (resp) {
-        console.log(resp);
+        // console.log(resp);
         dispatch(setDataOfApiBirth(resp[0]));
         dispatch(setDataOfApiAstro(resp[1]));
         dispatch(setDataOfApiPanchang(resp[2]));
       },
       function (err) {
-        console.log(err);
+        // console.log(err);
       }
     );
   }, [dataForApi]);

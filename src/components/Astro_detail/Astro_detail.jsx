@@ -12,12 +12,16 @@ import { useNavigate } from "react-router-dom";
 
 const Astro_detail = () => {
   const myData = useSelector((state) => state.data);
-console.log(myData.getApiDataAstro);
+  
   const navigate = useNavigate();
 
   const navigateToHome = () => {
     navigate("/");
   };
+
+  window.addEventListener('load',()=>{
+    navigate('/');
+  })
 
   return (
     <div>
@@ -32,9 +36,7 @@ console.log(myData.getApiDataAstro);
             </div>
           </Col>
 
-            {
-              myData.getApiDataAstro !== "" ?          
-              <Col>
+          <Col>
             <div className="tabs">
               <Tabs
                 defaultActiveKey="Birth Detail"
@@ -66,9 +68,7 @@ console.log(myData.getApiDataAstro);
                 </Tab>
               </Tabs>
             </div>
-          </Col> : <h1 className="text-center mt-5">Fill Form Data For Details</h1>
-            }
-
+          </Col>
         </Row>
       </Container>
     </div>
