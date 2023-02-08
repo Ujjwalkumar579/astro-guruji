@@ -60,7 +60,7 @@ const Home = () => {
                   <img src={aries} alt="" className="img-fluid" />
                   <form action="" onSubmit={setDataInStore}>
                     <div className="dob_filed">
-                      <label htmlFor="dob">Date of Birth</label>
+                      <label htmlFor="dob">Date of Birth ujjwal</label>
                       <input
                         type="date"
                         value={formData.dob}
