@@ -75,7 +75,7 @@ const Home = () => {
                       <span>Click on calendar icon to pick date</span>
                     </div>
                     <div className="time_filed">
-                      <label htmlFor="tob">Time of Birth</label>
+                      <label htmlFor="tob">Time of Birth kumar</label>
                       <input
                         type="time"
                         value={formData.time}
